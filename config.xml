@@ -16,7 +16,7 @@
     <access origin="*"/>
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
-    <content src="index.html" />
+    <content src="TravApp.html" />
 
     <preference name="loglevel" value="DEBUG" />
     <!--
