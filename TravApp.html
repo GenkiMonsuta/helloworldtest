@@ -12,24 +12,23 @@
 <body>
 
 
-
-<div class="modal fade" id="myModal">
-    <div class="modal-header">
-        <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="color: #ffffff"></span></a>
-    </div>
-    <div class="modal-body">
-        <form action="" method="post" accept-charset="UTF-8">
-        <p><input id="user_username" type="text" name="user[username]" size="30" placeholder="Username" /></p>
-        <p><input id="user_password" type="password" name="user[password]" size="30" placeholder="Password" /></p>
-
-        <p><input class="btn btn-primary" id="dropin" type="button" name="commit" value="Sign In" /></p>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+<div class="modal-container">
+    <div class="modal fade" id="myModal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></a>
+                <form action="" method="post" accept-charset="UTF-8">
+                <p><input id="user_username" type="text" name="user[username]" size="30" placeholder="Username"/></p>
+                <p><input id="user_password" type="password" name="user[password]" size="30" placeholder="Password" /></p>
+                </form>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Sign In</button>
+            </div>
+        </div>
     </div>
 </div>
+
+
     <div class="" id="navbarstyle">
     <nav class="navbar navbar-default navbar-inverse" role="navigation" id="navbarstyle">
         <div class="row">
