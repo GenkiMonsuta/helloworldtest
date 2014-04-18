@@ -8,12 +8,32 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/TravApp.css" rel="stylesheet">
 </head>
+
 <body>
 
 
-    <div class="col-xs-12" id="navbarstyle">
+
+<div class="modal fade" id="myModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove" style="color: #ffffff"></span></a>
+    </div>
+    <div class="modal-body">
+        <form action="" method="post" accept-charset="UTF-8">
+        <p><input id="user_username" type="text" name="user[username]" size="30" placeholder="Username" /></p>
+        <p><input id="user_password" type="password" name="user[password]" size="30" placeholder="Password" /></p>
+
+        <p><input class="btn btn-primary" id="dropin" type="button" name="commit" value="Sign In" /></p>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+
+    <div class="" id="navbarstyle">
     <nav class="navbar navbar-default navbar-inverse" role="navigation" id="navbarstyle">
-        <div class="row-fluid">
+        <div class="row">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand navbar-left" href="#"><span style="font-family: Cinzel"><strong>TravelUrr</strong></span></a>
@@ -30,15 +50,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" style="text-align: right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
                         <a href="#" class="btn-group-xs">Settings</a>
+                        <a href="#" class="btn-group-xs">Logout</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -67,5 +80,10 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/ProgramApp.js"></script>
+<script>
+    $(window).load(function(){
+    $('#myModal').modal('show');
+});
+</script>
 </body>
 </html>
