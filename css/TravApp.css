@@ -1,5 +1,33 @@
-.container-fluid{
+body{
     width: 100%;
+}
+
+#myModal{
+
+}
+
+.modal-body{
+    padding-top: 0;
+}
+
+.modal-footer{
+    margin-top: 0;
+}
+
+.close{
+    padding-top: 0;
+}
+
+#user_username{
+    margin-top: 25px;
+}
+
+#user_password{
+    margin-bottom: 15px;
+}
+
+#drodo{
+    text-align: right;
 }
 
 #navbarstyle{
@@ -10,14 +38,19 @@
     margin-bottom:0;
 }
 
-#uploadbutn{
-    padding-right: 0;
-    margin-right: 0;
-    margin-left: 0;
-    padding-left: 0;
+#uploadbtn{
+    width: 100%;
 }
 
-#myModal{
-   text-align: left;
-   margin-top: 30px;
+#butup{
+    width: 50%;
+    color: white;
+    background-color: #17E8DE;
+    height: 40px;
+}
+
+.container{
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
