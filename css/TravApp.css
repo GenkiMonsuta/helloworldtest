@@ -69,6 +69,15 @@ body{
 
 }
 
+#butbutbut{
+    text-align: right;
+    background-color: #9fbcb6;
+}
+
+#donebut{
+    
+}
+
 .container{
     width: 100%;
     padding-left: 0;
@@ -77,5 +86,9 @@ body{
 
 .butbut{
     text-align: center;
+}
+
+.img-responsive{
+    width: 20px; height: 20px !important;
 }
 
