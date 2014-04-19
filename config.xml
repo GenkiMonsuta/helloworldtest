@@ -13,6 +13,8 @@
         YOUR NAME
     </author>
 
+	<icon src="picpic.png" width="60" height="60" />
+
     <access origin="*"/>
 
     <!-- <content src="http://mysite.com/myapp.html" /> for external pages -->
