@@ -3,11 +3,11 @@
 
 
 <widget xmlns     = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "io.cordova.helloCordova"
 		version   = "2.0.0">
 
-		<plugin name="org.apache.cordova.geolocation" />
-
+		
     <name>TravelUrr</name>
 
     <description>
@@ -17,6 +17,8 @@
     <author href="YOUR URL" email="YOUR EMAIL">
         YOUR NAME
     </author>
+
+	<gap:plugin name="org.apache.cordova.geolocation" version="0.3.6" />
 
 	<icon src="picpic.png" width="60" height="60" />
 
