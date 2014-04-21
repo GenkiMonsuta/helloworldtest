@@ -366,7 +366,9 @@
 
     </div>
 
-<p id="geolocation">Finding geolocation...</p>
+<p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()">Try It</button>
+
 
 
 
@@ -390,25 +392,21 @@
         }
     }
 
-
-    function onSuccess(position) {
-        var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                'Longitude: '          + position.coords.longitude             + '<br />' +
-                'Altitude: '           + position.coords.altitude              + '<br />' +
-                'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                'Heading: '            + position.coords.heading               + '<br />' +
-                'Speed: '              + position.coords.speed                 + '<br />' +
-                'Timestamp: '          +                                   position.timestamp          + '<br />';
+    var x=document.getElementById("demo");
+    function getLocation()
+    {
+        if (navigator.geolocation)
+        {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else{x.innerHTML="Geolocation is not supported by this browser.";}
+    }
+    function showPosition(position)
+    {
+        x.innerHTML="Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
     }
 
-    // onError Callback receives a PositionError object
-    //
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-    }
 </script>
 </body>
 </html>
