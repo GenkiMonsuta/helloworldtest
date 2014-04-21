@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugin name="org.apache.cordova.geolocation" />
+
 
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "io.cordova.helloCordova"
 		version   = "2.0.0">
+
+		<plugin name="org.apache.cordova.geolocation" />
 
     <name>TravelUrr</name>
 
