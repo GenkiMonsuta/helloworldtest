@@ -71,11 +71,17 @@ body{
 
 #butbutbut{
     text-align: right;
-    background-color: #9fbcb6;
 }
 
-#donebut{
-    
+
+#modbodthumb{
+    padding-top: 15px;
+}
+
+#picsetfoot{
+    background-color: #9fbcb6;
+    border: none;
+    color: #ffffff;
 }
 
 .container{
