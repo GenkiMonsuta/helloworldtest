@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<gap:plugin name="org.apache.cordova.geolocation" />
+<plugin name="org.apache.cordova.geolocation" />
 
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "io.cordova.helloCordova"
-        version   = "2.0.0">
+		version   = "2.0.0">
+
     <name>TravelUrr</name>
 
     <description>
