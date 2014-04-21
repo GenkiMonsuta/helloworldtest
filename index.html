@@ -365,7 +365,23 @@
         <p style="margin-bottom: 0">18-04-2014</p> <hr style="margin-bottom: 5px; margin-top: 0">
 
     </div>
-<button class="btn btn-default"><a onclick="onSuccess(position,'geolocation');">show!</a></button>
+
+<h2>Geolocation</h2>
+<blockquote>
+    <p>The <code>geolocation</code> object provides access to the device's GPS sensor.</p>
+</blockquote>
+<h4 class="help"><b>Toggle</b> to stop/start
+    geolocation watch.
+    <br/><b>Get Current</b> for one-time geolocation reading.</h4>
+<a class="btn deux" onclick="toggleWatchPosition();">Toggle</a>
+<a class="btn deux" onclick="getCurrentPosition();">Get Current</a>
+<div class="result-block">
+    <span id="cur_position"></span>
+</div>
+<img id="map" alt="Location Map"/>
+</div>
+</div>
+
 
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -388,28 +404,109 @@
         }
     }
 
-    function onDeviceReady() {
-        alert(navigator.geolocation.getCurrentPosition(onSuccess));
+    var
+            getCurrentPosition = function() {
+                var map = document.getElementById('map');
+                var success = function(pos) {
+                    var text = "<div>Latitude: " + pos.coords.latitude +
+                            "<br/>" + "Longitude: " + pos.coords.longitude + "<br/>" +
+                            "Accuracy: " + pos.coords.accuracy + "m<br/>" + "</div>";
+                    document.getElementById(
+                            'cur_position').innerHTML = text;
+                    console.log(text);
+                    map.style.display =
+                            'block';
+                    var mapwidth = 270; // a mungy compromise between the 2 sizes
+                    var mapheight = 210; // since we can't get w / h dynamically
+                    map.src =
+                            "http://maps.googleapis.com/maps/api/staticmap?center=" +
+                                    pos.coords.latitude +
+                                    "," + pos.coords.longitude +
+                                    "&zoom=14&size=" + mapwidth + "x" + mapheight + "&maptype=roadmap&markers=color:green%7C" +
+                                    pos.coords.latitude +
+                                    "," + pos.coords.longitude + "&sensor=false";
+                };
+                var fail = function(error) {
+                    document.getElementById(
+                            'cur_position').innerHTML = "Error getting geolocation: " + error.code;
+                    console.log(
+                            "Error getting geolocation: code=" + error.code + " message=" + error.message);
+                };
+                map.style.display =
+                        'none';
+                document.getElementById(
+                        'cur_position').innerHTML = "Getting geolocation . . .";
+                console.log(
+                        "Getting geolocation . . .");
+                navigator.geolocation.getCurrentPosition(success, fail);
+            };
+
+    var
+            watchID = null;
+    function
+            clearWatch() {
+        if (watchID !== null) {
+            navigator.geolocation.clearWatch(watchID);
+            watchID =
+                    null;
+            document.getElementById(
+                    'cur_position').innerHTML = "";
+            document.getElementById(
+                    'map').style.display = 'none';
+        }
     }
+    var
+            wsuccess = function(pos) {
+                var map = document.getElementById('map');
+                document.getElementById(
+                        'cur_position').innerHTML = "Watching geolocation . . .";
+                map.style.display =
+                        'none';
+                var text = "<div>Latitude: " + pos.coords.latitude +
+                        " (watching)<br/>" + "Longitude: " + pos.coords.longitude + "<br/>" +
+                        "Accuracy: " + pos.coords.accuracy + "m<br/>" + "</div>";
+                document.getElementById(
+                        'cur_position').innerHTML = text;
+                console.log(text);
+                map.style.display =
+                        'block';
+                var mapwidth = 270; // a mungy compromise between the 2 sizes
+                var mapheight = 210; // since we can't get w / h dynamically
+                map.src =
+                        "http://maps.googleapis.com/maps/api/staticmap?center=" +
+                                pos.coords.latitude +
+                                "," + pos.coords.longitude +
+                                "&zoom=13&size=" + mapwidth + "x" + mapheight + "&maptype=roadmap&markers=color:green%7C" +
+                                pos.coords.latitude +
+                                "," + pos.coords.longitude + "&sensor=false";
+            };
+    var
+            wfail = function(error) {
+                document.getElementById(
+                        'cur_position').innerHTML = "Error getting geolocation: " + error.code;
+                console.log(
+                        "Error getting geolocation: code=" + error.code + " message=" + error.message);
+            };
+    var
+            toggleWatchPosition = function() {
+                if (watchID) {
+                    console.log(
+                            "Stopped watching position");
+                    clearWatch();
+// sets watchID = null;
+                }
+                else {
+                    document.getElementById(
+                            'map').style.display = 'none';
+                    document.getElementById(
+                            'cur_position').innerHTML = "Watching geolocation . . .";
+                    console.log(
+                            "Watching geolocation . . .");
+                    var options = { frequency: 3000, maximumAge: 5000, timeout: 5000, enableHighAccuracy: true };
+                    watchID = navigator.geolocation.watchPosition(wsuccess, wfail, options);
+                }
+            };
 
-        function onSuccess(position) {
-            var element = document.getElementById('geolocation');
-            element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                    'Longitude: '          + position.coords.longitude             + '<br />' +
-                    'Altitude: '           + position.coords.altitude              + '<br />' +
-                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                    'Heading: '            + position.coords.heading               + '<br />' +
-                    'Speed: '              + position.coords.speed                 + '<br />' +
-                    'Timestamp: '          + new Date(position.timestamp)          + '<br />';
-        }
-
-        // onError Callback receives a PositionError object
-        //
-        function onError(error) {
-            alert('code: '    + error.code    + '\n' +
-                    'message: ' + error.message + '\n');
-        }
 
 
 
