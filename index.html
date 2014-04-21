@@ -390,6 +390,7 @@
         element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
                 'Longitude: ' + position.coords.longitude     + '<br />' +
                 '<hr />'      + element.innerHTML;
+        alert(element);
     }
 
     // onError Callback receives a PositionError object
@@ -402,7 +403,6 @@
     // Options: throw an error if no update is received every 30 seconds.
     //
     var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });
-    alert('watchID');
 
 </script>
 </body>
