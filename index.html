@@ -366,16 +366,11 @@
 
     </div>
 
-<p id="demo">Click the button to get your coordinates:</p>
-<button onclick="getLocation()">Try It</button>
-
-
-
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/ProgramApp.js"></script>
-<script>
+<script type="text/javascript" charset="utf-8">
 
     $(window).load(function(){
     $('#myModal').modal('show');
@@ -390,21 +385,6 @@
             document.getElementById(bonusContent).style.display = "none";
             thisObj.innerHTML = "More!";
         }
-    }
-
-    var x=document.getElementById("demo");
-    function getLocation()
-    {
-        if (navigator.geolocation)
-        {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        }
-        else{x.innerHTML="Geolocation is not supported by this browser.";}
-    }
-    function showPosition(position)
-    {
-        x.innerHTML="Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
     }
 
 </script>
