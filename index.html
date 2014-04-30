@@ -64,7 +64,7 @@
 
 <div class="container col-xs-12">
         <div class="btn-group btn-group-sm" id="uploadbtn">
-                <button type="button" class="btn btn-default" id="butup"><span class="glyphicon glyphicon-upload"></span><strong> Picture</strong></button>
+                <button type="button" class="btn btn-default" id="butup" data-toggle="modal" data-target="#addpic"><span class="glyphicon glyphicon-upload"></span><strong> Picture</strong></button>
                 <button type="button" class="btn btn-default" id="butup2" data-toggle="modal" data-target="#modmod"><span class="glyphicon glyphicon-upload"></span><strong> Text</strong></button>
         </div>
 </div>
@@ -81,7 +81,45 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="addcap">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Picture Settings</h4>
+            </div>
+            <div class="modal-body" id="modbodthumb">
+                <p><input type="text" class="form-control" placeholder="Give your picture a caption or title"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs" id="picsetfoot"><strong>Delete picture</strong></button>
+                <button type="button" class="btn btn-xs" data-dismiss="modal"><strong>Cancel</strong></button>
+                <button type="button" class="btn btn-xs" id="picsetfoot"><strong>Save changes</strong></button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
+
+<div class="modal fade" id="addpic">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <br>
+                <button onclick="capturePhoto();" class="btn btn-xs" id="picsetfoot">Take a picture!</button> <br>
+                <br>
+                <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" class="btn btn-xs" id="picsetfoot">Upload a picture from Gallery</button><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs" data-dismiss="modal"><strong>Cancel</strong></button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
     <div class="row-fluid col-xs-12">
 
@@ -368,24 +406,7 @@
 
     </div>
 
-<div class="modal fade" id="addcap">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Picture Settings</h4>
-            </div>
-            <div class="modal-body" id="modbodthumb">
-                <p><input type="text" class="form-control" placeholder="Give your picture a caption or title"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-xs" id="picsetfoot"><strong>Delete picture</strong></button>
-                <button type="button" class="btn btn-xs" data-dismiss="modal"><strong>Cancel</strong></button>
-                <button type="button" class="btn btn-xs" id="picsetfoot"><strong>Save changes</strong></button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
 
 <a class="btn deux" onclick="toggleWatchPosition();">Toggle</a>
 <a class="btn deux" onclick="getCurrentPosition();">Get Current</a>
@@ -395,12 +416,7 @@
 <img id="map" alt="Location Map"/>
 
 
-<button onclick="capturePhoto();">Capture Photo</button> <br>
-<button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-<button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
 
-<img style="display:none;" id="largeImage" src="" />
 
 
 <script src="http://code.jquery.com/jquery.js"></script>
