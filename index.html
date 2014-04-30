@@ -393,15 +393,26 @@
 <img id="map" alt="Location Map"/>
 
 
-
-
-
+<button onclick="capturePhoto();">Capture Photo</button>
 
 
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/ProgramApp.js"></script>
 <script type="text/javascript" charset="utf-8">
+
+    navigator.camera.getPicture(capturePhoto, onFail, { quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL
+    });
+
+    function capturePhoto(imageData) {
+        var image = document.getElementById('myImage');
+        image.src = "data:image/jpeg;base64," + imageData;
+    }
+
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
 
     $(window).load(function(){
     $('#myModal').modal('show');
