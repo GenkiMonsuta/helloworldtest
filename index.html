@@ -108,11 +108,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title"></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="choosepic">
                 <br>
-                <button onclick="capturePhoto();" class="btn btn-xs" id="picsetfoot">Take a picture!</button> <br>
-                <br>
-                <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" class="btn btn-xs" id="picsetfoot">Upload a picture from Gallery</button><br>
+                <button onclick="capturePhoto();" class="btn btn-xs" id="butup">Take a picture!</button>
+                <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);" class="btn btn-xs" id="butup">Go to Gallery</button><br>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-xs" data-dismiss="modal"><strong>Cancel</strong></button>
