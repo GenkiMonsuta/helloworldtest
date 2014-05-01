@@ -90,7 +90,7 @@
             </div>
             <div class="modal-body" id="modbodthumb">
                 <p><input type="text" class="form-control" placeholder="Give your picture a caption or title"></p>
-                   <img class="img" src="" id="imageData" style="width: 100%; height: 200px">
+                   <img class="img" src="" id="largeImage" style="width: 100%; height: 200px">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-xs" id="picsetfoot"><strong>Delete picture</strong></button>
@@ -457,6 +457,17 @@ function onPhotoDataSuccess(imageData) {
     // The inline CSS rules are used to resize the image
     //
     smallImage.src = "data:image/jpeg;base64," + imageData;
+
+    var largeImage = document.getElementById('largeImage');
+
+    // Unhide image elements
+    //
+    largeImage.style.display = 'block';
+
+    // Show the captured photo
+    // The inline CSS rules are used to resize the image
+    //
+    largeImage.src = "data:image/jpeg;base64," + imageData;
 }
 
 // Called when a photo is successfully retrieved
@@ -467,16 +478,16 @@ function onPhotoURISuccess(imageURI) {
 
     // Get image handle
     //
-    var largeImage = document.getElementById('largeImage');
+    var lImage = document.getElementById('lImage');
 
     // Unhide image elements
     //
-    largeImage.style.display = 'block';
+    lImage.style.display = 'block';
 
     // Show the captured photo
     // The inline CSS rules are used to resize the image
     //
-    largeImage.src = imageURI;
+    lImage.src = imageURI;
 }
 
 // A button will call this function
