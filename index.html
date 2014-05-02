@@ -93,6 +93,7 @@
             </div>
             <div class="modal-body" id="modbodthumb">
                 <p><input type="text" class="form-control" ng-model="data.message" placeholder="Give your picture a caption or title"></p>
+                    <h5 style="text-align: center"><small>{{data.message}}</small></h5>
                    <img class="img" src="" id="largeImage" style="width: 100%; height: 200px">
             </div>
             <div class="modal-footer">
@@ -130,9 +131,6 @@
 
         <div class="col-xs-12 col-xs-4">
             <div class="thumbnail">
-                <div class="caption" id="capup">
-                    <h5><small>{{data.message}}</small></h5>
-                </div>
                 <img class="img-responsive" id="smallImage" src="" style="" data-toggle="modal" data-target="#addcap">
             </div>
         </div>
